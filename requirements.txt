@@ -1,0 +1,7 @@
+matplotlib
+pyrebase
+numpy
+PIL
+wordcloud
+re
+streamlit
