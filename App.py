@@ -21,15 +21,17 @@ class App:
             # display a wordcloud of all family data.
             st.title("Thanksgiving Reflections")
             st.write("Join to keep track of what you are thankful for this year!")
-            familyCount = self._getFamilyCount()
-            st.write("So far ", familyCount, " families have joined.\n\n ")
-            if familyCount > 0:
-                st.write("_Here is a sneak peak of what everyone is thankful for._")
-
-                # display word cloud
-                self.displayAllFamiliesData()
-            else:
-                st.write("You could be the first to join. ")
+            # familyCount = self._getFamilyCount()
+            st.subheader("demo doesn't include full functionality")
+            st.write("Hosted project will include a section displaying a wordcloud of what all users in the database are thankful for.")
+            # st.write("So far ", familyCount, " families have joined.\n\n ")
+            # if familyCount > 0:
+            #     st.write("_Here is a sneak peak of what everyone is thankful for._")
+            #
+            #     # display word cloud
+            #     self.displayAllFamiliesData()
+            # else:
+            #     st.write("You could be the first to join. ")
 
 
     def _connect_to_api(self):
@@ -40,8 +42,8 @@ class App:
             "projectId": "thankful-10af0",
             "storageBucket": "thankful-10af0.appspot.com",
             "messagingSenderId": "495459381997",
-            "appId": "1:495459381997:web:5a879bf5b32e5c4be752e4",
-            "serviceAccount": "./firebase_service_account.json"
+            "appId": "1:495459381997:web:5a879bf5b32e5c4be752e4"
+            # "serviceAccount": "./firebase_service_account.json"
         }
         self.state.firebase = pyrebase.initialize_app(firebaseConfig)
         self.state.auth = self.state.firebase.auth()
