@@ -1,7 +1,11 @@
 import streamlit as st
 import numpy as np
 from SessionState import SessionState, get
-from utils import *
+import pyrebase
+from PIL import Image
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
+import re
 
 class App:
     def __init__(self):
@@ -109,12 +113,12 @@ class App:
     def displayAllFamiliesData(self):
         thankfulItems = self._getAllFamilyData()
         if thankfulItems != None:
-            self._displayWordCloud(thankfulItems, "mask2.jpg")
+            self._displayWordCloud(thankfulItems, "mask1.png")
 
     """User creation and authentication"""
     def _initializeFamilyInDatabase(self):
         root = self._getUserDbRoot()
-        root.child("familyInfo").push(self.state.familyName, self.state.user["idToken"])
+        root.child("familyInfo").push(self.state.fName, self.state.user["idToken"])
         root = self._getUserDbRoot()
         root.child("thankfulList").push("", self.state.user["idToken"])
 
